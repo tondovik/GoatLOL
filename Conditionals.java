@@ -1,68 +1,122 @@
+import java.util.Scanner;
+
 public class Conditionals {
     public static void main(String[] args) {
 
-            //Basic Booleans
-            System.out.println(" Double equals: " + (3 == 2));
-            System.out.println("String equivalent: " + "Hello".equals("Helloz"));
-            System.out.println("Not equals: " + (7 != 4));
-            System.out.println("Greater than: " + (4 > 5));
+        Scanner scanner = new Scanner(System.in);
 
-            System.out.println();
+        // -------------------------
+        // Basic Booleans
+        // -------------------------
+        System.out.println("Double equals: " + (3 == 2));
+        System.out.println("String equivalent: " + "Hello".equals("Helloz"));
+        System.out.println("Not equals: " + (7 != 4));
+        System.out.println("Greater than: " + (4 > 5));
 
-            // if - then statement
-            int num = 11;
-            System.out.println(num <= 12);
-            if (num <= 12) {
-                System.out.println("num is less than or equals to 12");
-            }
+        System.out.println();
 
-             // if else statement
-             if (num <= 5) {
-                System.out.println("num is less than or equals to 5");
-            } else {
-                System.out.println("yay you did it! num is greater than 5");
-            }
+        // -------------------------
+        // if / else examples
+        // -------------------------
+        int num = 11;
 
-            // if... else if .... else
-            int temperature = 44;
-            if (temperature >= 85) {
-                System.out.println("It's hot!");
-            } else if (temperature >= 60 ){
-                 System.out.println("It's nice!");       
-            } else if (temperature < 40) {
-                System.out.println("It's cold!"); 
-            } else {
-                System.out.println("ERROR!");
-            }
+        if (num <= 12) {
+            System.out.println("num is less than or equal to 12");
+        }
 
-            // Logical 'and' operator: &&
+        if (num <= 5) {
+            System.out.println("num is less than or equal to 5");
+        } else {
+            System.out.println("num is greater than 5");
+        }
 
-            int age = 17;
-            boolean hasPermit = false;
+        // -------------------------
+        // else-if chain
+        // -------------------------
+        int temperature = 44;
 
-            if (age >= 17 && hasPermit){
-                System.out.println("You can drive");
-            } else {
-                System.out.println("Can't drive yet");
-            }
+        if (temperature >= 85) {
+            System.out.println("It's hot!");
+        } else if (temperature >= 60) {
+            System.out.println("It's nice!");
+        } else if (temperature < 40) {
+            System.out.println("It's cold!");
+        } else {
+            System.out.println("It's chilly.");
+        }
 
-            // Using 'or' ||
+        // -------------------------
+        // Logical operators
+        // -------------------------
+        int age = 17;
+        boolean hasPermit = false;
 
-            String day = "Taco";
+        if (age >= 17 && hasPermit) {
+            System.out.println("You can drive");
+        } else {
+            System.out.println("Can't drive yet");
+        }
 
-            if (day.equals("Saturday") || day.equals("Sunday")) {
-                System.out.println("It's the weekend!");
-            } else if (day.equals("Monday") || 
-                       day.equals("Tuesday") || 
-                       day.equals("Wednesday") || 
-                       day.equals("Thursday") || 
-                       day.equals("Friday") ) {
-                System.out.println("It's the weekday");         
-            } else {
-                System.out.println("That is not a day");
-            }
+        String day = "Taco";
 
+        if (day.equals("Saturday") || day.equals("Sunday")) {
+            System.out.println("It's the weekend!");
+        } else if (
+                day.equals("Monday") ||
+                day.equals("Tuesday") ||
+                day.equals("Wednesday") ||
+                day.equals("Thursday") ||
+                day.equals("Friday")
+        ) {
+            System.out.println("It's a weekday");
+        } else {
+            System.out.println("That is not a day");
+        }
+
+        // =========================
+        // Challenge 1: Password
+        // =========================
+        String correctPassword = "letmein";
+
+        System.out.print("Enter the password: ");
+        String userPassword = scanner.nextLine();
+
+        if (userPassword.equals(correctPassword)) {
+            System.out.println("Access granted");
+        } else {
+            System.out.println("Access denied");
+        }
+
+        // =========================
+        // Challenge 2: Even or Odd
+        // =========================
+        System.out.print("Enter a number: ");
+        int number = Integer.parseInt(scanner.nextLine());
+
+        if (number % 2 == 0) {
+            System.out.println("Even");
+        } else {
+            System.out.println("Odd");
+        }
+
+        // =========================
+        // Challenge 3: Letter Grade
+        // =========================
+        System.out.print("Enter a grade (0-100): ");
+        int grade = Integer.parseInt(scanner.nextLine());
+
+        if (grade >= 90) {
+            System.out.println("A");
+        } else if (grade >= 80) {
+            System.out.println("B");
+        } else if (grade >= 70) {
+            System.out.println("C");
+        } else if (grade >= 60) {
+            System.out.println("D");
+        } else {
+            System.out.println("F");
+        }
+
+        scanner.close();
     }
-
-    
 }
